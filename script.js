@@ -18,8 +18,10 @@ function onDragOver(event){
 	event.preventDefault();
 }
 function onDrop(event){
+	let elem = event.target;
 	obj.dropElement = event.target;
-	let drop = event.target.id;
-	event.target.id = obj.dragElement.id;
-	obj.dragElement.id = drop;
+	let img1 = window.getComputedStyle(elem).getPropertyValue('background-image');
+	let img2 = window.getComputedStyle(obj.dragElement).getPropertyValue('background-image');
+	elem.style.backgroundImage = img2;
+	obj.dragElement.style.backgroundImage = img1;
 }
